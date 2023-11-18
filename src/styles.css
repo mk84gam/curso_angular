@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+.maincolor{
+    background: #610998 !important;
+}
+
+.active-sidebar{
+    background: #610998 !important;
+    color: white;
+}
+.active-sidebar:hover{
+    color: white;
+}
+
+.warningcolor{
+    background: rgba(243, 219, 97, 0.475);
+    color: #987709;
+    
+}
+
+.country-flag-td{
+    text-align: center;
+}
+
+.flag-picture{
+    width: 50px;
+}

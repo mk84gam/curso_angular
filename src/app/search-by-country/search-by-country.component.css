@@ -1,0 +1,8 @@
+.a-info{
+    text-decoration: underline;
+}
+
+.container-table{
+    height: 600px;
+    overflow-y: scroll;
+}

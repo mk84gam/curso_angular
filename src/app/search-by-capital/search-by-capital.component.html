@@ -1,0 +1,103 @@
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <table>
+                <tr>
+                    <td>
+                        <div class="d-flex flex-column flex-shrink-0 p-3" style="width: auto;">
+                            <hr>
+                            <h2>By Capital</h2>
+                            <hr>
+                                <input type="text" class="form-control form-control-sm" placeholder="Search" #box (keyup)="onTypeValue(box.value)">
+                                <br>
+                                <button class="btn maincolor btn-dark" type="button" (click)="onClickSearchByCapital();" style="width: 150px">Search</button>
+                            <br>
+                            <div class="warningcolor d-flex flex-column flex-shrink-0 p-3" [ngClass]="{'visible': flag_error, 'invisible': !flag_error}" style="width: 900px;">
+                                <a>There are no countries to show</a>
+                            </div>
+                            <hr>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 900px;" [ngClass]="{'visible': show_table, 'invisible': !show_table}">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 container-table" style="width: auto;">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Icon</th>
+                                        <th>Flag</th>
+                                        <th>Name</th>
+                                        <th>Capital</th>
+                                        <th>Population</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    <tr *ngFor="let country of countries; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>{{country.cca3}}</td>
+                                        <td class="country-flag-tds"><img src={{country.flags.png}} class="flag-picture"></td>
+                                        <td>{{country.name.common}}</td>
+                                        <td>{{country.capital[0]}}</td>
+                                        <td>{{country.population | number:'1.0-0'}}</td>
+                                        <td><a class="a-info" data-bs-target="#carouselExample" data-bs-slide="next" (click)="onClickDetail(country.cca3, country.flags.png, country.name.common, country.capital[0],country.population, country.translations)">Info</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                        </div>
+                    </td>        
+                </tr>
+            </table>
+        </div>
+        <div class="carousel-item">
+            <table>
+                <tr>
+                    <td style="width: 900px;">
+                        <div class="d-flex flex-column flex-shrink-0 p-3" style="width: auto;">
+                            <div class="d-flex flex-column flex-shrink-0 p-3" style="width: auto;">
+                                <hr>
+                                <h2>Country: {{info_country_name}}</h2>
+                                <hr>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><h3>Flag</h3></th>
+                                        <th><h3>Information</h3></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    <tr>
+                                        <td><img class="card" src={{info_flag}}></td>
+                                        <td>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr><td><b>Capital: </b>{{info_capital}}</td></tr>
+                                                    <tr><td><b>Population: </b>{{info_population | number:'1.0-0'}}</td></tr>
+                                                    <tr><td><b>Code: </b>{{info_cca3}}</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                        </div>
+                        <div>
+                            <span class="badge rounded-pill maincolor ms-1 mt-1" *ngFor="let trans of info_translations; index as i">{{info_translations[i]}}</span>
+                        </div>
+                        <br>
+                        <div class="p-3">
+                            <button class="btn maincolor btn-dark" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="width: 150px">Back</button>
+                        </div>
+                    </td>        
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+

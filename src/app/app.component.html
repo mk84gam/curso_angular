@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg maincolor" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand title" href="#">Final Project - Countries</a>
+  </div>
+</nav>
+<table class="table-md">
+  <tbody>
+    <tr>
+      <td>
+      <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 300px;">
+          <hr>
+          <h2>Countries</h2>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                  <a routerLink="byCapital" class="nav-link" [ngClass]="{'active-sidebar link-light': enable_button_1, 'link-dark': !enable_button_1 }" (click)="enableButton(1);" >
+                      {{titleByCapital}}
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="byCountry" class="nav-link" [ngClass]="{'active-sidebar link-light': enable_button_2, 'link-dark': !enable_button_2 }" (click)="enableButton(2);">
+                      {{titleByCountry}}
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="byRegion" class="nav-link" [ngClass]="{'active-sidebar link-light': enable_button_3, 'link-dark': !enable_button_3 }" (click)="enableButton(3);">
+                      {{titleByRegion}}
+                  </a>
+              </li>
+          </ul>
+          <hr>
+        </div>
+      </td>
+      <td>
+        <router-outlet></router-outlet>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
